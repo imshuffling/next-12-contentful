@@ -5,7 +5,7 @@ export default function BlockVideo({ video, image }) {
         controls
         playsInline
         track={video.description}
-        poster={`${image.url}?fm=avif&q=75`}
+        poster={`${image.url}`}
         src={video.url}
         alt="Video recording of the website"
       />

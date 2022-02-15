@@ -4,7 +4,7 @@ export default function BlockImage({ image, lazyLoad }) {
   return (
     <div className="section image">
       <Image
-        src={`${image.url}?fm=avif&q=75`}
+        src={`${image.url}`}
         alt={image.fileName}
         height={image.height}
         width={image.width}
