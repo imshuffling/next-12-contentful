@@ -1,10 +1,6 @@
-//import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-//import Image from "next/image";
-//import Skeleton from "../../components/Skeleton";
 import PortfolioCard from "../../components/PortfolioCard";
 import ContentModules from "../../content-modules";
-//import fetchContent from "../../utils/fetchContent.ts";
 
 export default function PortfolioItem({ portfolioItem }) {
   const {
@@ -229,36 +225,11 @@ export async function getStaticProps({ params }) {
   }
 
   const { data } = await result.json();
-
   const [portfolioData] = data.portfolioCollection.items;
 
   return {
     props: { portfolioItem: portfolioData },
   };
-
-  // const response = await fetchContent(`
-  //   query GetPortfolioItem($slug: String!) {
-  //     portfolioCollection(
-  //       where: {
-  //         slug: $slug
-  //       },
-  //       limit: 1
-  //     ) {
-  //       items {
-  //         title
-  //       }
-  //     }
-  //   },
-  //   variables: {
-  //     slug: portfolioItem,
-  //   }
-  // `);
-
-  // return {
-  //   props: {
-  //     portfolioItem: response.portfolioCollection.items,
-  //   },
-  // };
 }
 
 export const getStaticPaths = async () => {
@@ -292,15 +263,11 @@ export const getStaticPaths = async () => {
   const { data } = await result.json();
   const portfolioSlugs = data.portfolioCollection.items;
 
-  console.log("portfolioSlugs", portfolioSlugs);
-
   const paths = portfolioSlugs.map(({ slug }) => {
     return {
       params: { portfolioItem: slug },
     };
   });
-
-  console.log("paths", paths);
 
   return {
     paths,

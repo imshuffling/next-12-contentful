@@ -13,18 +13,12 @@ const MODULE_MAP = {
 };
 
 export default function ContentModules({ blocksCollection }) {
-  console.log('---', blocksCollection);
   return (
     <div>
       {blocksCollection.items.map(({ __typename: type, ...props }, i) => {
         const Component = MODULE_MAP[type];
         return <Component key={i} {...props} />;
       })}
-      <style jsx>{`
-        div {
-          /* border: 1px solid red; */
-        }
-      `}</style>
     </div>
   );
 }

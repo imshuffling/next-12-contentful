@@ -40,7 +40,7 @@
   --form-text-color: rgb(57, 53, 49);
 }
 
-:root body.dark {
+html[data-theme='dark'] {
   --logo-color: linear-gradient(#fff0, #fff0) padding-box,
     radial-gradient(
         farthest-corner at var(--x) var(--y),
@@ -92,7 +92,7 @@
     --form-text-color: #fff;
   }
 
-  :root body.light {
+  html[data-theme='light'] {
     --primary-colour: rgb(244, 0, 136);
     --primary-colour-dark: rgb(187, 0, 103);
     --pink: #ffd6ed;

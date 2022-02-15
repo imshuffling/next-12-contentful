@@ -24,10 +24,16 @@ body#menu-open {
   z-index: 11;
 }
 
-.theme-changer,
-body.dark .gg-moon,
-body.light .gg-sun {
-  display: none;
+html[data-theme="dark"] .theme-changer-wrapper {
+  .gg-moon {
+    display: none;
+  }
+}
+
+html[data-theme="light"] .theme-changer-wrapper {
+  .gg-sun {
+    display: none;
+  }
 }
 
 .mode-container {
