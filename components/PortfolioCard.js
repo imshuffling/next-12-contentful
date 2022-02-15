@@ -9,7 +9,15 @@ export default function RecipeCard({ item }) {
       <Link href={"/portfolio/" + slug}>
         <a>
           <div className="card__image">
-            <Image src={image.url} objectFit="cover" blurDataURL placeholder="blur" layout="fill" alt={title} />
+            <Image
+              src={image.url}
+              objectFit="cover"
+              blurDataURL
+              placeholder="blur"
+              layout="fill"
+              alt={title}
+              quality={50}
+            />
             {media && (
               <video loop muted autoPlay playsInline>
                 <source src={media.url} type="video/mp4" />
