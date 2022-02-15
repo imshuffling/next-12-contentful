@@ -12,7 +12,7 @@ export default function BlockTwoColumn({ image, body, imageFirst }) {
       data-aos-once="true"
     >
       <Image
-        src={image.url}
+        src={`${image.url}?fm=avif&q=75`}
         alt={image.fileName}
         width={image.width}
         height={image.height}

@@ -10,12 +10,6 @@ export default function BlockTextArea({ title, body, centerText }) {
     >
       <h3>{title}</h3>
       <div><ReactMarkdown>{body}</ReactMarkdown></div>
-      <style jsx>{`
-        .text-area__center {
-          text-align: center;
-          margin: 0px auto;
-        }
-      `}</style>
     </div>
   );
 }

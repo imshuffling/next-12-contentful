@@ -5,17 +5,10 @@ export default function BlockVideo({ video, image }) {
         controls
         playsInline
         track={video.description}
-        poster={image.url}
+        poster={`${image.url}?fm=avif&q=75`}
         src={video.url}
         alt="Video recording of the website"
       />
-
-      <style jsx>{`
-        video {
-          max-width: 100%;
-          height: auto;
-        }
-      `}</style>
     </div>
   );
 }

@@ -10,12 +10,6 @@ export default function BlockTextLeft({ title, body }) {
     >
       <h3>{title}</h3>
       <div><ReactMarkdown>{body}</ReactMarkdown></div>
-
-      <style jsx>{`
-        .text-area-left {
-          max-width: 70%;
-        }
-      `}</style>
     </div>
   );
 }
