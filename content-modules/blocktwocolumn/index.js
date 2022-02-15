@@ -17,6 +17,7 @@ export default function BlockTwoColumn({ image, body, imageFirst }) {
         width={image.width}
         height={image.height}
         lazy="lazy"
+        blurDataURL placeholder="blur"
       />
       <div><ReactMarkdown>{body}</ReactMarkdown></div>
 

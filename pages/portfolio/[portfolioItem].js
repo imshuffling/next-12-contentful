@@ -7,8 +7,6 @@ import ContentModules from "../../content-modules";
 //import fetchContent from "../../utils/fetchContent.ts";
 
 export default function PortfolioItem({ portfolioItem }) {
-  // if (!portfolioItem) return <Skeleton />;
-
   const {
     title,
     link,
@@ -24,113 +22,101 @@ export default function PortfolioItem({ portfolioItem }) {
   console.log("footerCollection", footerCollection);
 
   return (
-    <div>
-      <h1>{title}</h1>
-      {link}
-      {/* {completed}
-      {agency}
-      {client}
-      {timeframe} */}
-
-
-        <div className="portfolio-info">
-          <div>
-            <span>Client</span>
-            <span>
-              <strong>{client}</strong>
-            </span>
-          </div>
-          <div>
-            <span>Completed</span>
-            <span>
-              <strong>{completed}</strong>
-            </span>
-          </div>
-          <div>
-            <span>Timeframe</span>
-            <span>
-              <strong>{timeframe}</strong>
-            </span>
+    <>
+      <section className="portfolio-item">
+        <div className="portfolio-item__content">
+          <div
+            className="portfolio-item__copy"
+            data-aos="fade-up"
+            data-aos-once="true"
+          >
+            <div className="portfolio-item__who">
+              {agency ? agency : "Mirum"}
+            </div>
+            <h1>{title}</h1>
+            <h2>{documentToReactComponents(body.json)}</h2>
           </div>
         </div>
 
-      <div>{documentToReactComponents(body.json)}</div>
-      {blocksCollection && (
-        <ContentModules blocksCollection={blocksCollection} />
-      )}
+        <div
+          className="portfolio-wrapper"
+          data-aos="fade-in"
+          data-aos-once="true"
+          data-aos-delay="500"
+        >
+          <div className="portfolio-info">
+            {client && (
+              <div className="portfolio-info__item">
+                <span>Client</span>
+                <span>
+                  <strong>{client}</strong>
+                </span>
+              </div>
+            )}
+
+            {completed && (
+              <div className="portfolio-info__item">
+                <span>Completed</span>
+                <span>
+                  <strong>{completed}</strong>
+                </span>
+              </div>
+            )}
+
+            {timeframe && (
+              <div className="portfolio-info__item">
+                <span>Timeframe</span>
+                <span>
+                  <strong>{timeframe}</strong>
+                </span>
+              </div>
+            )}
+
+            {link && (
+              <div className="portfolio-info__item">
+                <span>Website</span>
+                <span>
+                  <strong>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={`https://${link}`}
+                    >
+                      {link}
+                    </a>
+                  </strong>
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+        <div>{documentToReactComponents(body.json)}</div>
+        {blocksCollection && (
+          <ContentModules blocksCollection={blocksCollection} />
+        )}
+        {link && (
+          <p>
+            <span role="img" alt="Finger emoji" aria-label="Finger">
+              👉{" "}
+            </span>
+            <a target="_blank" rel="noopener noreferrer" href={`//${link}`}>
+              Visit website
+            </a>
+          </p>
+        )}
+      </section>
       {footerCollection && (
-        <div className="footer-collections">
-          {footerCollection.items.map((item) => (
-            <PortfolioCard key={item.slug} item={item} />
-          ))}
-        </div>
+        <section className="other-projects">
+          <h3>Other projects</h3>
+          <div id="cards">
+            {footerCollection.items.map((item) => (
+              <PortfolioCard key={item.slug} item={item} />
+            ))}
+          </div>
+        </section>
       )}
-
-      <style jsx>{`
-        .footer-collections {
-          margin-bottom: 6rem;
-          margin-top: 12rem;
-          display: grid;
-          grid-gap: 30px;
-          grid-template-columns: repeat(2, 1fr);
-          grid-auto-rows: 1fr;
-        }
-      `}</style>
-    </div>
+    </>
   );
-
-  // return (
-  //   <div>
-  //     <div className="banner">
-  //       <Image
-  //         src={'https:' + featuredImage.fields.file.url}
-  //         width={featuredImage.fields.file.details.image.width}
-  //         height={featuredImage.fields.file.details.image.height}
-  //       />
-  //       <h2>{ title }</h2>
-  //     </div>
-
-  //     <div className="info">
-  //       <p>Takes about { cookingTime } mins to cook.</p>
-  //       <h3>Ingredients:</h3>
-
-  //       {ingredients.map(ing => (
-  //         <span key={ing}>{ ing }</span>
-  //       ))}
-  //     </div>
-
-  //     <div className="method">
-  //       <h3>Method:</h3>
-  //       <div>{documentToReactComponents(method)}</div>
-  //     </div>
-
-  //     <style jsx>{`
-  //       h2,h3 {
-  //         text-transform: uppercase;
-  //       }
-  //       .banner h2 {
-  //         margin: 0;
-  //         background: #fff;
-  //         display: inline-block;
-  //         padding: 20px;
-  //         position: relative;
-  //         top: -60px;
-  //         left: -10px;
-  //         transform: rotateZ(-1deg);
-  //         box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  //       }
-  //       .info p {
-  //         margin: 0;
-  //       }
-  //       .info span::after {
-  //         content: ", ";
-  //       }
-  //       .info span:last-child::after {
-  //         content: ".";
-  //       }
-  //     `}</style>
-  //   </div>
-  // )
 }
 
 export async function getStaticProps({ params }) {

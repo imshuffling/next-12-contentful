@@ -9,6 +9,7 @@ export default function BlockImage({ image, lazyLoad }) {
         height={image.height}
         width={image.width}
         layout="intrinsic"
+        blurDataURL placeholder="blur"
         lazy={lazyLoad ? "lazy" : "eager"}
       />
     </div>
