@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import { navigate } from "gatsby-link";
-// import { Helmet } from "react-helmet";
-// import Layout from "../components/layout";
+import Router, { useRouter } from 'next/router';
 
 const Contact = () => {
   const [text, setText] = useState({});
@@ -24,7 +22,7 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...text }),
     })
-      .then(() => navigate("/thanks/"))
+      .then(() => Router.push('/thanks'))
       .catch((error) => alert(error));
 
     e.preventDefault();
