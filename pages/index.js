@@ -1,6 +1,7 @@
 import PortfolioCard from "../components/PortfolioCard";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import fetchContent from "../utils/fetchContent.ts";
+import Head from "next/head";
+import Favicon from "../components/Favicon";
 
 export async function getStaticProps() {
   const result = await fetch(
@@ -58,26 +59,31 @@ export async function getStaticProps() {
 export default function Recipes({ portfolioCollection }) {
   return (
     <section>
+      <Head>
+        <title>About me - David Riches</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <Favicon />
+      </Head>
       <div id="strapline">
         <h1>
-          Hello I&apos;m David.{' '}
+          Hello I&apos;m David.{" "}
           <span role="img" aria-label="Waving hand">
             👋
           </span>
         </h1>
         <h2>
           <span className="intro">
-            A Front-end developer &amp; part-time hockey player{' '}
+            A Front-end developer &amp; part-time hockey player{" "}
             <span role="img" aria-label="Hockey stick">
-              🏑{' '}
+              🏑{" "}
             </span>
             from London.
           </span>
-          I like making things on the web,{' '}
+          I like making things on the web,{" "}
           <AnchorLink offset="30" data-scroll href="#cards">
             view my portfolio
-          </AnchorLink>
-          {' '}or{' '}
+          </AnchorLink>{" "}
+          or{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -87,15 +93,15 @@ export default function Recipes({ portfolioCollection }) {
           </a>
         </h2>
         <h3>
-          This site is built with{' '}
+          This site is built with{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.nextjs.org/"
           >
             Next.js
-          </a>
-          {' '}and powered by{' '}
+          </a>{" "}
+          and powered by{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Router, { useRouter } from 'next/router';
+import Router, { useRouter } from "next/router";
+import Head from "next/head";
+import Favicon from "../../components/Favicon";
 
 const Contact = () => {
   const [text, setText] = useState({});
@@ -22,7 +24,7 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...text }),
     })
-      .then(() => Router.push('/thanks'))
+      .then(() => Router.push("/thanks"))
       .catch((error) => alert(error));
 
     e.preventDefault();
@@ -30,6 +32,11 @@ const Contact = () => {
 
   return (
     <section id="contact">
+      <Head>
+        <title>Contact - David Riches</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <Favicon />
+      </Head>
       <div>
         <h1>Contact me</h1>
         <h2>

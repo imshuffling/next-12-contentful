@@ -1,6 +1,8 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import PortfolioCard from "../../components/PortfolioCard";
 import ContentModules from "../../content-modules";
+import Head from "next/head";
+import Favicon from "../../components/Favicon";
 
 export default function PortfolioItem({ portfolioItem }) {
   const {
@@ -17,6 +19,11 @@ export default function PortfolioItem({ portfolioItem }) {
 
   return (
     <>
+      <Head>
+        <title>{title} - David Riches</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <Favicon />
+      </Head>
       <section className="portfolio-item">
         <div className="portfolio-item__content">
           <div
