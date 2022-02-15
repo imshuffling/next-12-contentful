@@ -3,17 +3,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import fetchContent from "../utils/fetchContent.ts";
 
 export async function getStaticProps() {
-  //   const res = await fetchContent(`
-  //   {
-  //     featuredProjectsCollection {
-  //       total
-
-  // `);
-  //   return {
-  //     props: {
-  //       portfolioCollection: "hello",
-  //     },
-  //   };
 
   const result = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`,
@@ -79,10 +68,10 @@ export default function Recipes({ portfolioCollection }) {
           </h1>
           <h2>
             <span className="intro">
-              A Front-end developer &amp; part-time hockey player{" "}
+              A Front-end developer &amp; part-time hockey player
               <span role="img" aria-label="Hockey stick">
                 🏑
-              </span>{" "}
+              </span>
               from London.
             </span>
             I like making things on the web,{" "}

@@ -23,27 +23,18 @@ export async function getStaticProps() {
 
 export default function services({ servicesCollection }) {
   return (
-    <div>
+    <section>
+      <h1>What I can do</h1>
       {servicesCollection && (
-        <div className="services">
-          {servicesCollection.map((item) => (
-            <div>
+        <ul id="services">
+          {servicesCollection.map((item, i) => (
+            <li key={i}>
               <h3>{item.title}</h3>
               <div>{documentToReactComponents(item.body.json)}</div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
-
-      <style jsx>{`
-        .services {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 80px;
-          max-width: 70%;
-          margin-bottom: 40px;
-        }
-      `}</style>
-    </div>
+    </section>
   );
 }

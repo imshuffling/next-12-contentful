@@ -19,8 +19,6 @@ export default function PortfolioItem({ portfolioItem }) {
     blocksCollection,
   } = portfolioItem;
 
-  console.log("footerCollection", footerCollection);
-
   return (
     <>
       <section className="portfolio-item">
@@ -90,7 +88,6 @@ export default function PortfolioItem({ portfolioItem }) {
             )}
           </div>
         </div>
-        <div>{documentToReactComponents(body.json)}</div>
         {blocksCollection && (
           <ContentModules blocksCollection={blocksCollection} />
         )}
