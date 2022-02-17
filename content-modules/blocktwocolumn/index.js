@@ -17,20 +17,11 @@ export default function BlockTwoColumn({ image, body, imageFirst }) {
         width={image.width}
         height={image.height}
         layout="intrinsic"
-        quality={50}
+        quality={20}
         lazy="lazy"
         blurDataURL placeholder="blur"
       />
       <div><ReactMarkdown>{body}</ReactMarkdown></div>
-
-      <style jsx>{`
-        .two-column {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          grid-gap: 30px;
-        }
-      `}</style>
-
     </div>
   );
 }
