@@ -5,9 +5,9 @@ export default function ThemeChanger() {
 
   return (
     <div className="theme-changer-wrapper">
-      <div className={`mode-container ${theme}`}>
-        <i onClick={() => setTheme("light")} className={`gg-sun`}></i>
-        <i onClick={() => setTheme("dark")} className={`gg-moon`}></i>
+      <div className="mode-container">
+        <i onClick={() => setTheme("light")} className="gg-sun"></i>
+        <i onClick={() => setTheme("dark")} className="gg-moon"></i>
       </div>
     </div>
   );
